@@ -29,4 +29,14 @@
     <servlet-name>LoginServlet5</servlet-name>
     <url-pattern>/login5</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CalcServlet</display-name>
+    <servlet-name>CalcServlet</servlet-name>
+    <servlet-class>sec02.ex01.CalcServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalcServlet</servlet-name>
+    <url-pattern>/calc</url-pattern>
+  </servlet-mapping>
 </web-app>
