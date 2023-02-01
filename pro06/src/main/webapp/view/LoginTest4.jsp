@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<% String id = (String)request.getParameter("id"); %>
-<% String password = (String)request.getParameter("password"); %>
+<% String id = (String)request.getParameter("id1"); %>
+<% String password = (String)request.getParameter("password1"); %>
 <!DOCTYPE html>
 <html>
 <head>
