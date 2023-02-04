@@ -18,6 +18,7 @@
   <mappers>
    <!--  -->
     <mapper resource="resources/mapper/memberMapper.xml"/>
+    <mapper resource="resources/mapper/visitMapper.xml"/>
   </mappers>
 </configuration>
 
