@@ -37,7 +37,7 @@
 	}
 </script>
 
-
+ 
 <body>
 	<span id="loginTime"></span>
 	<input type="button" value="팝업창뜨게(팝업쿠키삭제)" onClick="deleteCookie()">
