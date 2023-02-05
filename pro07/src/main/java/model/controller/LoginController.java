@@ -1,7 +1,10 @@
 package model.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -14,10 +17,15 @@ import model.service.MemberService;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
+	
+	List userList= new ArrayList();
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session =req.getSession();
-		if(session.getAttribute("isLogin")==null) {
+		if(session.getAttribute("isLogin")==null) {//로그인 안되어잇는경우
+//			로그인을 시도합니다. 
 			Cookie[] allValues= req.getCookies();
 			for(Cookie s : allValues) {
 				if(s.getName().equals("id")) {
@@ -26,7 +34,7 @@ public class LoginController extends HttpServlet {
 			}
 			req.getRequestDispatcher( "./view/Login.jsp").forward(req, resp);
 		
-		}else {
+		}else {//로그인 되어있는경우
 			resp.sendRedirect("./");
 		}
 	
@@ -54,11 +62,21 @@ public class LoginController extends HttpServlet {
 				
 				resp.addCookie(c);
 				HttpSession session = req.getSession();
+				ServletContext context = getServletContext();
+				
+				userList.add(dto);
+				context.setAttribute("userList", userList);
 				session.setAttribute("isLogin", true);
 				session.setAttribute("login", dto);
-				req.getRequestDispatcher("./index.jsp").forward(req, resp);
+//				req.getRequestDispatcher("./index.jsp").forward(req, resp);
+				//새로고침할때마다 계속 실행되서 접속아이디가 증가하는 문제가남..
+				
+				
+				resp.sendRedirect("./index.jsp");
+				return;
 			}
 		}
+		//비번이 틀리거나 유저아이디가 없는경우.
 		String msg="아이디 혹은 비밀번호를 확인해주세요.";
 		req.setAttribute("msg", msg);
 		req.getRequestDispatcher("./view/Login.jsp").forward(req, resp);
