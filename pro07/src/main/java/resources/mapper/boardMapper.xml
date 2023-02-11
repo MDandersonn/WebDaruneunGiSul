@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+	<select id="selectAll" resultType="model.dto.BoardDTO">
+		select * from t_board
+	</select>
+	
+	<select id="rowNum" resultType="int">
+		select count(*) from t_board
+	</select>
+	<select id="selectByPage" parameterType="map" resultType="model.dto.BoardDTO">
+			select articleno,parentno,title,content,imagefilename,writedate,ID
+			from(select ROWNUM as num,articleno,parentno,title,content,imagefilename,writedate,ID 
+					from(select * from t_board order by articleNO desc)
+				)
+			where num between #{start} and #{last}
+	</select>
+
+</mapper>

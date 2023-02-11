@@ -54,12 +54,15 @@
 	</c:if>
 	<a href="./visit">visit방명록</a>
 	
+	<a href="./board">게시판</a>
+	
 	<c:if test="${sessionScope.isLogin == null}">
 		<a href="./memberInsert">회원가입</a>
 		<a href="./login">로그인</a>
 	</c:if> 
 	<c:if test="${sessionScope.isLogin == true}">
 		<h2> ${sessionScope.login.id } 님 안녕하세요 !</h2>
+		<a href= "${pageContext.request.contextPath}/info" }>회원정보</a>
 		<a href="./logout">로그아웃</a>
 
 	</c:if> 

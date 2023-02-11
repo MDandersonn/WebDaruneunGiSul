@@ -39,7 +39,7 @@
 			
 			<c:url var="visitDeleteUrl" value="/visit/delete" />
 			<c:set var="formId" value="deleteForm${d.id}" />
-			${formId}
+			
 			<li>
 				${d.nickname } | ${d.context }
 				<%-- <button onclick="location.href='./visit/update?id=${d.id}'">수정</button>--%>

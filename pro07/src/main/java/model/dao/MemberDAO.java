@@ -51,4 +51,10 @@ public class MemberDAO {
 		return count;
 	}
 
+	public List<MemberDTO> selectByName(MemberDTO dto) {
+		List<MemberDTO> data = session.selectList("memberMapper.selectByName",dto);
+		return data;
+		
+	}
+
 }

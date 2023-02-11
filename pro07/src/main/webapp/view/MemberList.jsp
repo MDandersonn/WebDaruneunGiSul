@@ -19,6 +19,12 @@
 	<a href="./">메인으로</a>
 	<a href="./memberInsert">회원추가</a><br>
 	<h1>회원명단</h1>
+	
+	<form action="./search" method="get">
+		이름 : <input type="text" name="name">
+		<input type="submit" value="검색">
+	</form>
+	<br>
 	<table border="1" style="border-collapse:collapse;">
 		<tr>
 			<td>아이디</td>

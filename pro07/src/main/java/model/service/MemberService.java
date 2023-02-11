@@ -73,5 +73,11 @@ public class MemberService {
 		return false;
 	}
 
+	public List<MemberDTO> selectByName(MemberDTO dto) {
+		MemberDAO dao= new MemberDAO();
+		List<MemberDTO> data= dao.selectByName(dto); 
+		return data;
+	}
+
 
 }

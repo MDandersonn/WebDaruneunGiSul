@@ -19,6 +19,7 @@
    <!--  -->
     <mapper resource="resources/mapper/memberMapper.xml"/>
     <mapper resource="resources/mapper/visitMapper.xml"/>
+    <mapper resource="resources/mapper/boardMapper.xml"/>
   </mappers>
 </configuration>
 
