@@ -10,6 +10,28 @@ public class BoardDTO {
 	private String imageFileName;
 	private Date writedate;
 	private String id;
+	private int recUP;
+	private int recDOWN
+	;
+	public int getRecUP() {
+		return recUP;
+	}
+	public void setRecUP(int recUP) {
+		this.recUP = recUP;
+	}
+	public int getRecDOWN() {
+		return recDOWN;
+	}
+	public void setRecDOWN(int recDOWN) {
+		this.recDOWN = recDOWN;
+	}
+	public int getViewCNT() {
+		return viewCNT;
+	}
+	public void setViewCNT(int viewCNT) {
+		this.viewCNT = viewCNT;
+	}
+	private int viewCNT;
 	
 	
 	public int getArticleNO() {

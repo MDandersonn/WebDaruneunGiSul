@@ -17,5 +17,41 @@
 				)
 			where num between #{start} and #{last}
 	</select>
+	<select id="selectByArticleNO" parameterType="model.dto.BoardDTO" resultType="model.dto.BoardDTO">
+		select * from t_board where articleNO= #{articleNO}
+	</select>
+	<update id="recUP" parameterType="model.dto.BoardDTO">
+		update t_board
+		set recUP= recUP+1
+		where articleNO = #{articleNO}
+	</update>
+	<update id="recDOWN" parameterType="model.dto.BoardDTO">
+		update t_board
+		set recDOWN= recDOWN+1
+		where articleNO = #{articleNO}
+	</update>
+	<update id="removeRecDOWN" parameterType="model.dto.BoardDTO">
+		update t_board
+		set recDOWN= recDOWN-1
+		where articleNO = #{articleNO}
+	</update>
+	<update id="removeRecUP" parameterType="model.dto.BoardDTO">
+		update t_board
+		set recUP= recUP-1
+		where articleNO = #{articleNO}
+	</update>
+	<select id= "getSequence"  resultType="int">
+		select seq_t_board.nextval from dual
+	</select>
+	<insert id ="insertBoard" parameterType="model.dto.BoardDTO" >
+		insert into t_board values(#{articleNO},DEFAULT, #{title},#{content},#{imageFileName},DEFAULT,#{id}, DEFAULT,DEFAULT ,DEFAULT)
+	</insert>
+	
+	<insert id ="insertImage" parameterType="model.dto.BoardDTO" >
+		INSERT INTO t_BOARD_IMG VALUES(s_BOARD_IMG.NEXTVAL, #{boardId}, #{path}, #{name}, #{uuid})
+	</insert>
+	<select id="getImages" parameterType="model.dto.BoardDTO" resultType="model.dto.BoardImageDTO">
+		select * from t_board_img where boardId=#{articleNO}
+	</select>
 
 </mapper>

@@ -32,7 +32,9 @@
 			<option value="25" ${cnt eq 25 ? "selected":"" }>25개</option>
 		</select>
 	</form>
+	
 	<br></br>
+	<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/board/insert'">글작성</button>
 	
 	<table border="1" style="border-collapse:collapse;">
 		<tr>
@@ -48,10 +50,10 @@
 			<tr>
 				<td>${data.articleNO }</td>
 				<td>${data.id }</td>
-				<td>${data.title }</td>
+				<td><a href="./board/detail?articleNO=${data.articleNO }">${data.title }</a></td>
 				<td>${data.writedate }</td>
 				
-				<td><button onclick="location.href='./boardUpdate?id=${data.articleNO}'">수정</button></td>
+				<td><button  onclick="location.href='./boardUpdate?id=${data.articleNO}'">수정</button></td>
 				<td><button  onclick="location.href='./boardDelete?id=${data.articleNO}'" >삭제</button></td>
 			</tr>
 		</c:forEach>
